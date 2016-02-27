@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(s)
         
         
-        let b = DemoModel1()
+        var b = DemoModel1()
         b.bookId = 1212
         b.bookName = "我是一个白痴"
         b.bookClass = "文学"
@@ -38,7 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //测试好像没什么问题
         //下面来写一个映射
-        
+        let dict = ["BookId":123123,"BookName":"我是第二个白痴","BookClass":"杂志"] //这里第一个全是大写
+        b = b.mapModel(dict)
+        print(b)
+        //测试成功
         return true
     }
 

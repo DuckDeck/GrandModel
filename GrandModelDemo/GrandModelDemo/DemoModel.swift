@@ -21,6 +21,20 @@ class DemoModel:GrandModel {
 
 
 class DemoModel1: GrandModel {
+    
+    static var  modelDescription = ["BookId":"bookId",
+        "BookName":"bookName",
+        "BookClass":"bookClass",]
+
+    
+    override var selfMapDescription:[String:String]?{
+        get {
+            return DemoModel1.modelDescription
+        }
+        set{
+            
+        }
+    }
     var bookId = 0
     var bookName:String?
     var bookClass:String?
