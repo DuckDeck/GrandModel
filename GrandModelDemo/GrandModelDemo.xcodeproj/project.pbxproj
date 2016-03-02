@@ -49,7 +49,7 @@
 		A2A2D50A1C81750A00F624DE /* GrandModelDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrandModelDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2A2D50E1C81750A00F624DE /* GrandModelDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandModelDemoUITests.swift; sourceTree = "<group>"; };
 		A2A2D5101C81750A00F624DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2A2D51D1C81752700F624DE /* GrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GrandModel.swift; path = ../../GrandModel/GrandModel.swift; sourceTree = "<group>"; };
+		A2A2D51D1C81752700F624DE /* GrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GrandModel.swift; path = ../GrandModel/GrandModel.swift; sourceTree = "<group>"; };
 		A2A2D51F1C81839A00F624DE /* DemoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,7 +136,8 @@
 			children = (
 				A2A2D51D1C81752700F624DE /* GrandModel.swift */,
 			);
-			path = GrandModel;
+			name = GrandModel;
+			path = ../GrandModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,6 +499,7 @@
 				A2A2D5151C81750A00F624DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2A2D5161C81750A00F624DE /* Build configuration list for PBXNativeTarget "GrandModelDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +508,7 @@
 				A2A2D5181C81750A00F624DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2A2D5191C81750A00F624DE /* Build configuration list for PBXNativeTarget "GrandModelDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +517,7 @@
 				A2A2D51B1C81750A00F624DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
