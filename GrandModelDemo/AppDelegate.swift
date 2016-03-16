@@ -242,6 +242,7 @@ class DemoArchiver:GrandModel {
     var demoString:String?
     var demoInt = 10
     var demoFloat:Float?
+    var demoBool:Bool = true
     var demoDouble:Double = 12
     var demoDate:NSDate?
     var demoClass:demoArc?
