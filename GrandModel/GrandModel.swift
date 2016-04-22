@@ -8,16 +8,29 @@
 import Foundation
 import UIKit
 
+typealias arrTypeBlock = (arrName:String)->AnyClass
 
 protocol MapAble{
     static func mapModel(obj:AnyObject)->Self
 }
 
 class GrandModel:NSObject,NSCoding{
-    class var selfMapDescription:[String:String]?{
-        return nil
+    var selfMapDescription:[String:String]?{
+        get{
+            return nil
+        }
     }
+
+    
+    var arrType:arrTypeBlock?{
+        get{
+            return nil
+        }
+    }
+
+    
     static var typeMapTable:[String:[String:(String,AnyClass)]] = [String:[String:(String,AnyClass)]]()
+   
     required override init() {
         super.init()
         let modelName = "\(self.dynamicType)"
@@ -31,28 +44,33 @@ class GrandModel:NSObject,NSCoding{
         if GrandModel.typeMapTable[modelName]!.count != 0{
             return
         }
+        
+        
+        
         //  let z = NSClassFromString("_TtC11DemoConsole9DemoOther")
         //对于NSIndexPath还有NSRange之类的就算了
-        let count:UnsafeMutablePointer<UInt32> =  UnsafeMutablePointer<UInt32>()
-        var properties = class_copyPropertyList(self.dynamicType, count)
-        properties.debugDescription
-        while properties.memory.debugDescription !=  "0x0000000000000000"{
-            let a = property_getAttributes(properties.memory)
-            let d = NSString(CString: a, encoding: NSUTF8StringEncoding)
-            //这样对于没有赋值的类型，会转为String,这肯定会不行，要想其他的办法,
-            //看看Attribute有什么东西,Attribute可以获取一个完整的类名，用这个类名可以获取
-            //这个类，下面实战试试
-            
-            let cTypes = d!.componentsSeparatedByString(",")
+        var count:UInt32 =  0
+    //   var vars = class_copyIvarList(self.dynamicType, &count)
+//        for j in 0..<count {
+//            let s = NSString(CString: ivar_getTypeEncoding(vars[Int(j)]), encoding: NSUTF8StringEncoding)
+//            print(s)
+//        }
+        //Issue0，问题是在Swift中无法获取IVar的类型。所有的数据全是空的，所以不得不放弃这个,而Property是可以获取类型的
+        let pr = class_copyPropertyList(self.dynamicType, &count)
+    
+        
+        for i  in 0..<count {
+           let des = String.fromCString(property_getAttributes(pr[Int(i)]))
+            let cTypes = des!.componentsSeparatedByString(",")
             if let className = cTypes.first
             {
                 if let proertyName = cTypes.last{
                     let pn = (proertyName as NSString).substringFromIndex(1)
-                    if d!.containsString("\""){
+                    if des!.containsString("\""){
                         let cn = (className.stringByReplacingOccurrencesOfString("\"", withString: "") as NSString).substringFromIndex(2)
                         GrandModel.typeMapTable[modelName]![pn] = (cn,NSClassFromString(cn)!)
                     }
-                    else if d!.containsString("{"){ //用{来可能比较好一点
+                    else if des!.containsString("{"){ //用{来可能比较好一点
                         let cgType = (className as NSString).substringWithRange(NSMakeRange(4, 4))
                         switch cgType{
                         case "Rect":GrandModel.typeMapTable[modelName]![pn] = ("CGRect",NSValue.self)
@@ -72,7 +90,6 @@ class GrandModel:NSObject,NSCoding{
                     }
                 }
             }
-            properties = properties.successor()
         }
     }
     
@@ -178,11 +195,10 @@ class GrandModel:NSObject,NSCoding{
     
     func getSelfProperty()->[String]{
         var selfProperties = [String]()
-        let count:UnsafeMutablePointer<UInt32> =  UnsafeMutablePointer<UInt32>()
-        var properties = class_copyPropertyList(self.dynamicType, count)
-        while properties.memory.debugDescription !=  "0x0000000000000000"{
-            let t = property_getName(properties.memory)
-            let n = NSString(CString: t, encoding: NSUTF8StringEncoding)
+        var count:UInt32 =  0
+        var properties = class_copyPropertyList(self.dynamicType, &count)
+        for i in 0..<count {
+            let n = String.fromCString(property_getName(properties[Int(i)]))
             selfProperties.append(n! as String)
             properties = properties.successor()
         }
@@ -194,54 +210,109 @@ extension GrandModel:MapAble{
     static func mapModel(obj:AnyObject)->Self{
         //  let modelName = "\(self)"
         let model = self.init()
-        if let mapTable = self.selfMapDescription{
+        let modelName = "\(model.dynamicType)"
+        let dictTypes = GrandModel.typeMapTable[modelName]
+        if let mapDict = model.selfMapDescription{
             if let dict = obj as? [String:AnyObject]
             {
                 for item in dict{
-                    if let key = mapTable[item.0]{
-                        print("key 为\(item.0)将要被设成\(mapTable[item.0),其值是 \(item.1)")
-                        
-                        //首先判断其类型
-                        //              if   GrandModel.typeMapTable[modelName]!.keys.contains(key) &&  GrandModel.typeMapTable[modelName]![key]! is GrandModel.Type{
-                        //                 let classType = GrandModel.typeMapTable[modelName]![key]!
-                        //              var  s =  (classType as! GrandModel.Type).init()
-                        //在这里用静态方法是行不通的，只有用非静态方法了
-                        //如果使用静态的方式来转换，到这里已经是死胡同了。因为在这里无法获取映射表
-                        //以后再研究，
-                        
-                        //                            let modelItem =
-                        //
-                        //                            model.setValue(modelItem, forKey: key)
-                        //     }
-                        //  else{
+                    if let key = mapDict[item.0]{
+                        print("key 为\(item.0)将要被设成\(key),其值是 \(item.1)")
+                        let type = dictTypes![key]
+                        if type == nil {
+                            continue
+                        }
+                        if type!.1 is GrandModel.Type {
+                              let s =  model.mapModel(item.1,type: type!.1)
+                             model.setValue(s, forKey: key)
+                        }
+                       else if type!.1 is NSArray.Type { //这个可真不好办了，因为Runtime只能获取到NSArray的属性，所以还需要一个变量来获取数据类型
+                            var arrModel = [AnyObject]()
+                            if let itemDict = item.1 as? [[String:String]]{
+                                if let typeBlock = model.arrType{
+                                   let aType = typeBlock(arrName: type!.0)
+                                    if aType is GrandModel.Type{
+                                        for item in itemDict {
+                                            var m = (aType as! GrandModel.Type).init()
+                                            m = m.mapModel(item, type: aType) as! GrandModel
+                                            arrModel.append(m)
+                                        }
+                                        model.setValue(arrModel, forKey: key)
+                                    }
+                                    else{
+                                        //如果只是简单类型，但是 一般不会出现这种情况
+                                    }
+                                }
+                            }
+                        }
+                        if item.1 is NSNull {
+                            continue
+                        }
                         if item.1 is NSNumber{
                             model.setValue("\(item.1)", forKey: key)
                         }
                         else{
                             model.setValue(item.1, forKey: key)
                         }
-                        //   }
+                    }
+                }
+            }
+        }
+    return model
+}
+    
+    
+    
+    func mapModel(obj:AnyObject,type:AnyClass)->AnyObject{
+        let model = (type as! GrandModel.Type).init()
+        let modelName = "\(type)"
+        let dictTypes = GrandModel.typeMapTable[modelName]
+        if let mapDict = model.selfMapDescription{
+            if let dict = obj as? [String:AnyObject]{
+                for item in dict{
+                    if let key = mapDict[item.0]{
+                        print("key 为\(item.0)将要被设成\(key),其值是 \(item.1)")
+                        let type = dictTypes![key]
+                        if type!.1 is GrandModel.Type {
+                            let s =  self.mapModel(item.1,type: type!.1)
+                            model.setValue(s, forKey: key)
+                        }
+                        if item.1 is NSNull {
+                            continue
+                        }
+                        if item.1 is NSNumber{
+                            model.setValue("\(item.1)", forKey: key)
+                        }
+                        else{
+                            model.setValue(item.1, forKey: key)
+                        }
                     }
                 }
             }
         }
         return model
     }
+
+    
 }
 
 
-extension GrandModel:CustomDebugStringConvertible{
+
+
+extension GrandModel{
     internal override var description:String{
         get{
             var dict = [String:AnyObject]()
-            let count:UnsafeMutablePointer<UInt32> =  UnsafeMutablePointer<UInt32>()
-            var properties = class_copyPropertyList(self.dynamicType, count)
-            while properties.memory.debugDescription !=  "0x0000000000000000"{
-                let t = property_getName(properties.memory)
-                let n = NSString(CString: t, encoding: NSUTF8StringEncoding)
-                let v = self.valueForKey(n as! String) ?? "nil"
-                dict[n as! String] = v
-                properties = properties.successor()
+            var count:UInt32 =  0
+            let properties = class_copyPropertyList(self.dynamicType, &count)
+            for i in 0..<count {
+                let t = property_getName(properties[Int(i)])
+                if let n = NSString(CString: t, encoding: NSUTF8StringEncoding) as? String
+                {
+                    let v = self.valueForKey(n ) ?? "nil"
+                    dict[n] = v
+                }
+                
             }
             return "\(self.dynamicType):\(dict)"
         }
@@ -252,3 +323,28 @@ extension GrandModel:CustomDebugStringConvertible{
         }
     }
 }
+
+
+//                            let method =   class_getClassMethod(type!.1, NSSelectorFromString("mapModel:"))
+//                                let p = method_getImplementation(method)
+//                            method_setImplementation(<#T##m: Method##Method#>, <#T##imp: IMP##IMP#>)
+//                            typealias MyCFunction = @convention(c) (AnyObject, Selector) -> Void
+//                           let curriedImplementation = unsafeBitCast(p, MyCFunction.self)
+//
+//                           curriedImplementation(self, NSSelectorFromString("mapModel:"))
+//                            print(method)
+
+
+//首先判断其类型
+//              if   GrandModel.typeMapTable[modelName]!.keys.contains(key) &&  GrandModel.typeMapTable[modelName]![key]! is GrandModel.Type{
+//                 let classType = GrandModel.typeMapTable[modelName]![key]!
+//              var  s =  (classType as! GrandModel.Type).init()
+//在这里用静态方法是行不通的，只有用非静态方法了
+//如果使用静态的方式来转换，到这里已经是死胡同了。因为在这里无法获取映射表
+//以后再研究，
+
+//                            let modelItem =
+//
+//                            model.setValue(modelItem, forKey: key)
+//     }
+//  else{

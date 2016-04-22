@@ -7,7 +7,14 @@
 //
 
 import UIKit
+class DemoOther: GrandModel {
+    var userName:String?
+     static var mapDict = ["userName":"userName"]
+    override var selfMapDescription: [String : String]?{
+        return DemoOther.mapDict
+    }
 
+}
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -89,47 +96,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         */
         
         
-        /*
-        
-        class DemoOther: GrandModel {
-        var userName:String?
-        override static var selfMapDescription:[String:String]?{
-        return [ "userName":"userName"]
-        }
-        }
         
         
-        class DemoClass:GrandModel {
-        var name:String?
-        var age:Int = 0
-        var grade:Int = 0
-        var score:Float = 0.0
-        var money:Double = 10.1
-        var intergerDemo:NSInteger = 2
-        var pointDemo:CGPoint = CGPointZero
-        var sizeDemo:CGSize = CGSizeZero
-        var rectDemo:CGRect = CGRectZero
-        var dataDemo:NSData = NSData()
-        var dateDemo = NSDate()
-        var userName:String?
-        var otherClass:DemoOther?
-        var otherClasses:[DemoOther]?
-        //需要重写selfMapDescription
-        override static var selfMapDescription:[String:String]?{
-        return ["sName":"name",
-        "iAge":"age",
-        "iGrade":"grade",
-        "UserName":"userName",
-        "sUserName":"userName",
-        "userName":"userName",
-        "DemoOther":"otherClass",
-        "DemoOthers":"otherClasses"]
-        }
-        }
+
+        
+     
         
         //下面来测试
         
         let demoOther = DemoOther()
+        demoOther.userName = "123"
+        let nsme = demoOther.valueForKey("userName")
+        print(demoOther)
         //demoOther.userName = "DemoUserName"
         //let demoDict = ["sName":1234567,"iAge":"12","iGrade":"6","UserName":"userName","DemoOther":["userName":"OtherUserName"],
         //    "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]
@@ -158,7 +136,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(model)
         
         
-        */
+        
         
 /*
         
@@ -174,23 +152,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         //下面来试验
-        let demoTest = DemoArchiver()
-        demoTest.demoFloat = 11.11
-        demoTest.demoClass = demoArc()
-        demoTest.demoClass?.daInt = 8
-        demoTest.demoClass?.daString = "demoArc"
-        let a1 = demoArc()
-        let a2 = demoArc()
-        a1.daString = "a1"
-        a1.daInt = 1
-        a2.daInt = 2
-        a2.daString = "a2"
-        demoTest.demoArray = [a1,a2]
-        demoTest.demoDict  = ["demo1":a1,"demo2":a2]
-        print(demoTest)
-        let a = NSKeyedArchiver.archivedDataWithRootObject(demoTest)
-        let b = NSKeyedUnarchiver.unarchiveObjectWithData(a)
-        print(b)
+//        let demoTest = DemoArchiver()
+//        demoTest.demoFloat = 11.11
+//        demoTest.demoClass = demoArc()
+//        demoTest.demoClass?.daInt = 8
+//        demoTest.demoClass?.daString = "demoArc"
+//        let a1 = demoArc()
+//        let a2 = demoArc()
+//        a1.daString = "a1"
+//        a1.daInt = 1
+//        a2.daInt = 2
+//        a2.daString = "a2"
+//        demoTest.demoArray = [a1,a2]
+//        demoTest.demoDict  = ["demo1":a1,"demo2":a2]
+//        print(demoTest)
+//        let a = NSKeyedArchiver.archivedDataWithRootObject(demoTest)
+//        let b = NSKeyedUnarchiver.unarchiveObjectWithData(a)
+//        print(b)
         
         
         
@@ -213,6 +191,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+
 class DemoClass:GrandModel {
     var name:String?
     var age:Int = 0
@@ -226,17 +206,43 @@ class DemoClass:GrandModel {
     var dataDemo:NSData = NSData()
     var dateDemo = NSDate()
     var userName:String?
-    //需要重写selfMapDescription
-    override static var selfMapDescription:[String:String]?{
-        return ["sName":"name",
-            "iAge":"age",
-            "iGrade":"grade",
-            "UserName":"userName",
-            "sUserName":"userName",
-            "userName":"userName",]
-    }
-}
+    var otherClass:DemoOther?
+    var otherClasses:[DemoOther]?
 
+    //需要重写selfMapDescription
+//    override static var selfMapDescription:[String:String]?{
+//        return ["sName":"name",
+//                "iAge":"age",
+//                "iGrade":"grade",
+//                "UserName":"userName",
+//                "sUserName":"userName",
+//                "userName":"userName",
+//                "DemoOther":"otherClass",
+//                "DemoOthers":"otherClasses"]
+//    }
+    
+    static let mapDict =  ["sName":"name",
+                           "iAge":"age",
+                            "iGrade":"grade",
+                            "UserName":"userName",
+                            "sUserName":"userName",
+                            "userName":"userName",
+                            "DemoOther":"otherClass",
+                            "DemoOthers":"otherClasses"]
+        
+    override  var  selfMapDescription: [String : String]?{
+        return DemoClass.mapDict
+    }
+    
+    override var arrType:arrTypeBlock?
+    {
+        return   {(t:String) -> AnyClass in
+        return DemoOther.self
+        }
+        
+    }
+        
+}
 
 class DemoArchiver:GrandModel {
     var demoString:String?
