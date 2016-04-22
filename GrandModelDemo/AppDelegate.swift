@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         demo = DemoClass.mapModel(demoDict)
         //demo.otherClass = DemoOther.mapModel(demoDict["DemoOther"]!)
         print(demo)
-        print(demo.otherClass)
+        print(demo.otherClasses)
         
         
         enum week{

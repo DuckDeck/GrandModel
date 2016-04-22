@@ -225,6 +225,7 @@ extension GrandModel:MapAble{
                         if type!.1 is GrandModel.Type {
                               let s =  model.mapModel(item.1,type: type!.1)
                              model.setValue(s, forKey: key)
+                            continue
                         }
                        else if type!.1 is NSArray.Type { //这个可真不好办了，因为Runtime只能获取到NSArray的属性，所以还需要一个变量来获取数据类型
                             var arrModel = [AnyObject]()
@@ -239,9 +240,11 @@ extension GrandModel:MapAble{
                                         }
                                         model.setValue(arrModel, forKey: key)
                                     }
+                                    
                                     else{
                                         //如果只是简单类型，但是 一般不会出现这种情况
                                     }
+                                    continue
                                 }
                             }
                         }
