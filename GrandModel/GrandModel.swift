@@ -196,11 +196,13 @@ class GrandModel:NSObject,NSCoding{
     func getSelfProperty()->[String]{
         var selfProperties = [String]()
         var count:UInt32 =  0
-        var properties = class_copyPropertyList(self.dynamicType, &count)
+        let properties = class_copyPropertyList(self.dynamicType, &count)
         for i in 0..<count {
-            let n = String.fromCString(property_getName(properties[Int(i)]))
-            selfProperties.append(n! as String)
-            properties = properties.successor()
+            let t = property_getName(properties[Int(i)])
+            if let n = NSString(CString: t, encoding: NSUTF8StringEncoding) as? String
+            {
+                selfProperties.append(n as String)
+            }
         }
         return selfProperties
     }

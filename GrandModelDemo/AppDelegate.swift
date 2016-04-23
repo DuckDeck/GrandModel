@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
         
         //下面来测试
-        
+        /*
         let demoOther = DemoOther()
         demoOther.userName = "123"
         let nsme = demoOther.valueForKey("userName")
@@ -135,7 +135,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let model = TestModel()
         print(model)
         
-        
+        */
         
         
 /*
@@ -152,40 +152,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         //下面来试验
-//        let demoTest = DemoArchiver()
-//        demoTest.demoFloat = 11.11
-//        demoTest.demoClass = demoArc()
-//        demoTest.demoClass?.daInt = 8
-//        demoTest.demoClass?.daString = "demoArc"
-//        let a1 = demoArc()
-//        let a2 = demoArc()
-//        a1.daString = "a1"
-//        a1.daInt = 1
-//        a2.daInt = 2
-//        a2.daString = "a2"
-//        demoTest.demoArray = [a1,a2]
-//        demoTest.demoDict  = ["demo1":a1,"demo2":a2]
-//        print(demoTest)
-//        let a = NSKeyedArchiver.archivedDataWithRootObject(demoTest)
-//        let b = NSKeyedUnarchiver.unarchiveObjectWithData(a)
-//        print(b)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        let demoTest = DemoArchiver()
+        demoTest.demoFloat = 11.11
+        demoTest.demoClass = demoArc()
+        demoTest.demoClass?.daInt = 8
+        demoTest.demoClass?.daString = "demoArc"
+        let a1 = demoArc()
+        let a2 = demoArc()
+        a1.daInt = 1
+        a2.daInt = 2
+        a2.daString = "a2"
+        demoTest.demoArray = [a1,a2]
+        demoTest.demoDict  = ["demo1":a1,"demo2":a2]
+        print(demoTest)
+        let a = NSKeyedArchiver.archivedDataWithRootObject(demoTest)
+        let b = NSKeyedUnarchiver.unarchiveObjectWithData(a)
+        print(b)
+
         
         return true
     }
