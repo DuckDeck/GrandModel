@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
         
         //下面来测试
-        /*
+        
         let demoOther = DemoOther()
         demoOther.userName = "123"
         let nsme = demoOther.valueForKey("userName")
@@ -112,14 +112,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //let demoDict = ["sName":1234567,"iAge":"12","iGrade":"6","UserName":"userName","DemoOther":["userName":"OtherUserName"],
         //    "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]
         //]
-        let demoDict = ["sName":1234567,"iAge":"12","iGrade":"6","UserName":"userName","DemoOther":["userName":"OtherUserName"],
+        let demoDict:[String:AnyObject] = ["sName":1234567,"iAge":"12","ib":true,"iGrade":"6","UserName":"userName","DemoOther":["userName":"OtherUserName"],
         "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]
         ]
+        
+        
+        //let demoDict:[String:AnyObject] = ["ib":true,"score":11]
         var demo = DemoClass()
         demo = DemoClass.mapModel(demoDict)
         //demo.otherClass = DemoOther.mapModel(demoDict["DemoOther"]!)
         print(demo)
-        print(demo.otherClasses)
+       print(demo.otherClasses)
         
         
         enum week{
@@ -135,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let model = TestModel()
         print(model)
         
-        */
+ 
         
         
 /*
@@ -150,7 +153,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(s)
   */
         
-
+/*
         //下面来试验
         let demoTest = DemoArchiver()
         demoTest.demoFloat = 11.11
@@ -169,7 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let b = NSKeyedUnarchiver.unarchiveObjectWithData(a)
         print(b)
 
-        
+ */
         return true
     }
 }
@@ -181,6 +184,7 @@ class DemoClass:GrandModel {
     var age:Int = 0
     var grade:Int = 0
     var score:Float = 0.0
+    var isFool:Bool = false
     var money:Double = 10.1
     var intergerDemo:NSInteger = 2
     var pointDemo:CGPoint = CGPointZero
@@ -208,10 +212,12 @@ class DemoClass:GrandModel {
                            "iAge":"age",
                             "iGrade":"grade",
                             "UserName":"userName",
+                            "score":"score",
                             "sUserName":"userName",
                             "userName":"userName",
                             "DemoOther":"otherClass",
-                            "DemoOthers":"otherClasses"]
+                            "DemoOthers":"otherClasses",
+                            "ib":"isFool"]
         
     override  var  selfMapDescription: [String : String]?{
         return DemoClass.mapDict
@@ -232,7 +238,7 @@ class DemoArchiver:GrandModel {
     var demoInt = 10
     var demoFloat:Float?
     var demoBool:Bool = true
-    var demoDouble:Double = 12
+    var demoDouble:Double = 0.0
     var demoDate:NSDate?
     var demoClass:demoArc?
     var demoArray:[demoArc]?

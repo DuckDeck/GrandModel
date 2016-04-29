@@ -85,6 +85,7 @@ class GrandModel:NSObject,NSCoding{
                         case "q": GrandModel.typeMapTable[modelName]![pn] = ("Int",NSNumber.self)
                         case "f": GrandModel.typeMapTable[modelName]![pn] = ("Float",NSNumber.self)
                         case "d": GrandModel.typeMapTable[modelName]![pn] = ("Double",NSNumber.self)
+                        case "B": GrandModel.typeMapTable[modelName]![pn] = ("Bool",NSNumber.self)
                         default:break
                         }
                     }
@@ -234,7 +235,7 @@ extension GrandModel:MapAble{
                         }
                        else if type!.1 is NSArray.Type { //这个可真不好办了，因为Runtime只能获取到NSArray的属性，所以还需要一个变量来获取数据类型
                             var arrModel = [AnyObject]()
-                            if let itemDict = item.1 as? [[String:String]]{
+                            if let itemDict = item.1 as? [AnyObject]{
                                 if let typeBlock = model.arrType{
                                    let aType = typeBlock(arrName: type!.0)
                                     if aType is GrandModel.Type{
@@ -257,7 +258,12 @@ extension GrandModel:MapAble{
                             continue
                         }
                         if item.1 is NSNumber{
-                            model.setValue("\(item.1)", forKey: key)
+                            if type?.0 == "Bool"{
+                                model.setValue(item.1.boolValue, forKey: key)
+                            }
+                            else{
+                                model.setValue("\(item.1)", forKey: key)
+                            }
                         }
                         else{
                             model.setValue(item.1, forKey: key)
@@ -289,7 +295,12 @@ extension GrandModel:MapAble{
                             continue
                         }
                         if item.1 is NSNumber{
-                            model.setValue("\(item.1)", forKey: key)
+                            if type?.0 == "Bool"{
+                                model.setValue(item.1.boolValue, forKey: key)
+                            }
+                            else{
+                                model.setValue("\(item.1)", forKey: key)
+                            }
                         }
                         else{
                             model.setValue(item.1, forKey: key)
