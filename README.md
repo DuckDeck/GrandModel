@@ -70,3 +70,7 @@ class DemoClass:GrandModel {
     var demo  = DemoClass.mapModel(demoDict)
     print(demo)
 ```
+
+##Contact 
+Any issue or problem please contact me:3421902@qq.com, I will be happy fix it
+**任何问题或者BUG请直接和我联系3421902@qq.com, 我会乐于帮你解决**
