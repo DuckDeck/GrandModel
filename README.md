@@ -63,12 +63,45 @@ class DemoClass:GrandModel {
     }
   }
   
+  class DemoOther: GrandModel {
+    var userName:String?
+     static var mapDict = ["userName":"userName"]
+    override var selfMapDescription: [String : String]?{
+        return DemoOther.mapDict
+    }
+
+}
+  
   then is easy to use mapModel func to convert Dict to model
   
    let demoDict:[String:AnyObject] = ["sName":1234567,"iAge":"12","ib":true,"iGrade":"6","UserName":"userName","DemoOther":["userName":"OtherUserName"],
         "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]]
     var demo  = DemoClass.mapModel(demoDict)
     print(demo)
+    //打印结果
+    DemoClass:["money": 10.1, "grade": 6, "isFool": 1, "intergerDemo": 2, "dateDemo": 2016-05-12 06:43:28 +0000, "otherClasses": <_TtCs21_SwiftDeferredNSArray 0x7f9c0bd1d780>(
+DemoOther:["selfMapDescription": {
+    userName = userName;
+}, "userName": OtherUserName1],
+DemoOther:["selfMapDescription": {
+    userName = userName;
+}, "userName": OtherUserName2]
+)
+, "pointDemo": NSPoint: {0, 0}, "age": 12, "selfMapDescription": {
+    DemoOther = otherClass;
+    DemoOthers = otherClasses;
+    UserName = userName;
+    iAge = age;
+    iGrade = grade;
+    ib = isFool;
+    sName = name;
+    sUserName = userName;
+    score = score;
+    userName = userName;
+}, "name": 1234567, "sizeDemo": NSSize: {0, 0}, "score": 0, "arrType": <__NSMallocBlock__: 0x7f9c0bd1e700>, "dataDemo": <>, "rectDemo": NSRect: {{0, 0}, {0, 0}}, "userName": userName, "otherClass": DemoOther:["selfMapDescription": {
+    userName = userName;
+}, "userName": OtherUserName]]
+可见，字典被正确地转化成了Model，无论里面有自定义类还是数组
 ```
 
 ##Contact 
