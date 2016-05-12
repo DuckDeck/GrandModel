@@ -16,7 +16,7 @@ Xcode 7.2 and iOS 8.0(the lasted swift grammar)
 <br>
 
 ##How To Use It 【怎么使用】
-+ GrandModel override description func and debugDescription func，  So any class inherid from GrandModel can print all the properties **GrandModel 重新了description和debugDescription方法，因此任务继承天GrandModel的类都可以打印出所有属性出来**
++ GrandModel override description func and debugDescription func，  So any class inherid from GrandModel can print all the properties **GrandModel 重新了description和debugDescription方法，因此任务继承于GrandModel的类都可以打印出所有属性出来**
 + GrandModel implement NSCoding protocal, So any class inherid from GrandModel can archive and unarchive automatically**GrandModel实现了NSCoding协议，因此所有继承了GrandModel的类都可以实现自动归档**
 + Any class inherid from GrandModel can use mapModel func to complete Dict->Model transform。Please refer the code below:**因此所有继承了GrandModel的类都可以用mapModel方法来实现Dict-》Model转换，请参考以下代码**
 ``` Swift
