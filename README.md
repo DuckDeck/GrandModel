@@ -39,6 +39,7 @@ class DemoClass:GrandModel {
     var otherClasses:[DemoOther]?
     
     // then define a map table, the key is the dict that you want to transform, and the value is the var name.
+    //定义一个映射表，Key就是你想要转换的字典的Key，而Value是Model的变量名
     static let mapDict =  ["sName":"name",
                            "iAge":"age",
                             "iGrade":"grade",
@@ -49,11 +50,13 @@ class DemoClass:GrandModel {
                             "DemoOther":"otherClass",
                             "DemoOthers":"otherClasses",
                             "ib":"isFool"]
-    then override the selfMapDescription property and return the mapdict                   
+    //then override the selfMapDescription property and return the map dict   
+    //重写selfMapDescription属性，用来返回这个映射表，这样的好处就是不用每实例化一个Model，不会再生成一个Model
     override  var  selfMapDescription: [String : String]?{
         return DemoClass.mapDict
     }
-    if your project have array property, You must let GrandModel know the array type
+    //if your Model have array property, You must let GrandModel know the array type
+    // 如果你的Model有Array类型的变量，那么你要让GrandModel知道你的Array里面保存的是什么变量
      override var arrType:arrTypeBlock?
     {
         return   {(t:String) -> AnyClass in
