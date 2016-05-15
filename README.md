@@ -55,15 +55,6 @@ class DemoClass:GrandModel {
     override  var  selfMapDescription: [String : String]?{
         return DemoClass.mapDict
     }
-    //if your Model have array property, You must let GrandModel know the array type
-    // 如果你的Model有Array类型的变量，那么你要让GrandModel知道你的Array里面保存的是什么变量
-     override var arrType:arrTypeBlock?
-    {
-        return   {(t:String) -> AnyClass in
-          return DemoOther.self
-        }
-        
-    }
   }
   
   class DemoOther: GrandModel {
