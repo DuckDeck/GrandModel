@@ -37,14 +37,9 @@ class GrandModel:NSObject,NSCoding{
         }
         
     }
-    
-    
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         print("没有这个字段-------\(key)")
     }
-    
-
-    
     
     func encodeWithCoder(aCoder: NSCoder) {
         let item = self.dynamicType.init()

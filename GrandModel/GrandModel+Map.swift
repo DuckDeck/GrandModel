@@ -21,7 +21,9 @@ extension GrandModel{
             for item in dict{
                 var key = item.0  //如果Server传过来的Key和自己写的key完全是一样的，那么用这个
                 if model.selfMapDescription != nil { //如果Server传过来的Key和自己写的key不一样的，那么用这个
-                    key = model.selfMapDescription![item.0]!    //如果Server传过来的Key只有部分是一样的？那么怎么办，不好意思，还是老实地写个映射表吧
+                    if model.selfMapDescription![item.0] != nil {
+                        key = model.selfMapDescription![item.0]!  //如果Server传过来的Key只有部分是一样的？那么怎么办，不好意思，还是老实地写个映射表吧, 其实这也没问题，那就直接用字典的key就行了，只要是一样的
+                    }
                 }
                 print("key 为\(item.0)将要被设成\(key),其值是 \(item.1)")
                 let type = dictTypes![key]
@@ -97,8 +99,5 @@ extension GrandModel{
         }
         return intArrM
     }
-
-    
-
 }
 

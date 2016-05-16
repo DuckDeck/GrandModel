@@ -14,7 +14,7 @@ class DemoClass: GrandModel {
     var grade:Int = 0
     var score:Float = 0.0
     var isFool:Bool = false
-    var money:Double = 10.1
+    var money:Double?
     var intergerDemo:NSInteger = 2
     var pointDemo:CGPoint = CGPointZero
     var sizeDemo:CGSize = CGSizeZero
@@ -24,7 +24,7 @@ class DemoClass: GrandModel {
     var userName:String?
     var otherClass:DemoOther?
     var otherClasses:[DemoOther]?
-    
+
     static let mapDict =  ["sName":"name",
                            "iAge":"age",
                            "iGrade":"grade",
