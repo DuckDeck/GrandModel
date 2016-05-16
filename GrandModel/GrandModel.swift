@@ -32,7 +32,7 @@ class GrandModel:NSObject,NSCoding{
         }
         let mir = Mirror(reflecting: self)
         for (key,value) in mir.children {
-           let grandType = GrandType(propertyMirrorType: Mirror(reflecting: value), belongType: self.dynamicType)
+           let grandType = GrandType(propertyMirrorType: Mirror(reflecting: value), belongType: self.dynamicType) //有了大神的这个还真是方便多了
             GrandModel.typeMapTable[modelName]![key!] = grandType
         }
         

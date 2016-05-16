@@ -22,8 +22,8 @@ class ViewController: UIViewController {
         //demo.otherClass = DemoOther.mapModel(demoDict["DemoOther"]!)
         print(demo)
         //print(demo.otherClasses)
-        
-        
+        print(demo.otherClasses)
+        //这个先这样，明天再测试
         enum week{
             case Mon,Thu,Wed,Tur,Fri,Sai,Sun
         }
