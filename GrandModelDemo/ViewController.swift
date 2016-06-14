@@ -13,11 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let demoDict:[String:AnyObject] = ["sName":"1234567",
-                                           "iAge":"12",
-                                            "ib":true,"iGrade":"6","UserName":"StanHu","intergerDemo":1000,"money":"222.4","DemoOther":["userName":"OtherUserName"],
-                                           "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]]
+//        let demoDict:[String:AnyObject] = ["sName":"1234567",
+//                                           "iAge":"12",
+//                                            "ib":true,"iGrade":"6","UserName":"StanHu","intergerDemo":1000,"money":"222.4","SUserName":"123123","DemoOther":["userName":"OtherUserName"],
+//                                           "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]]
         
+        
+        let demoDict:[String:AnyObject] = ["SUserName":"123123"]
         
         //let demoDict:[String:AnyObject] = ["ib":true,"score":11]
         let demo  = DemoClass.map(demoDict)
@@ -25,6 +27,12 @@ class ViewController: UIViewController {
         print(demo)
         //print(demo.otherClasses)
         print(demo.otherClasses)
+        
+        let dict = demo.convert()
+        for (key,value) in dict{
+            print("\(key) = \(value)")
+        }
+        
         //这个先这样，明天再测试
         enum week{
             case Mon,Thu,Wed,Tur,Fri,Sai,Sun
@@ -39,7 +47,7 @@ class ViewController: UIViewController {
         let model = TestModel()
         print(model)
         
-        
+
         
         
         /*

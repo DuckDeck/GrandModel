@@ -33,6 +33,7 @@ class DemoClass: GrandModel {
                            "sUserName":"userName",
                            "userName":"userName",
                            "DemoOther":"otherClass",
+                           "SUserName":"otherClass.userName",
                            "DemoOthers":"otherClasses",
                            "ib":"isFool"]
     

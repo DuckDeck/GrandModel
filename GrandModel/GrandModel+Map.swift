@@ -16,6 +16,7 @@ extension GrandModel{
         let model = self.init()
         let modelName = "\(model.dynamicType)"
         let dictTypes = GrandModel.typeMapTable[modelName]
+        var isKeyPath = false
         if let dict = obj as? [String:AnyObject]
         {
             for item in dict{
@@ -26,9 +27,21 @@ extension GrandModel{
                     }
                 }
                 print("key 为\(item.0)将要被设成\(key),其值是 \(item.1)")
-                let type = dictTypes![key]
+                var type = dictTypes![key]
+                var fullPathKey = ""
+                isKeyPath = false
                 if type == nil {  //正常这里不会是nil
-                    continue
+                    //不行，如果里面还有一层的话，那样就不好了，也就是说，如果需要把传回的数据映射成它的子类，那么这里还要再判断
+                    if key.containsString(".") {
+                        fullPathKey = key
+                         key = key.componentsSeparatedByString(".").first!
+                         type = dictTypes![key]
+                        isKeyPath = true
+                        
+                    }
+                    if type == nil { //不然就过去，因为类型不对
+                        continue
+                    }
                 }
                 if item.1 is NSNull {
                     continue
@@ -74,7 +87,16 @@ extension GrandModel{
                     if !(item.1 is NSNull)
                     {
                         let cls = ClassFromString(type!.typeName)
-                        model.setValue((cls as! GrandModel.Type).map(item.1 as! NSDictionary), forKeyPath: key)
+                        if isKeyPath {
+                            if model.valueForKey(key) == nil {
+                                model.setValue((cls as! GrandModel.Type).init(), forKey:key)
+                            }
+                            model.setValue(item.1, forKeyPath: fullPathKey)
+                        }
+                        else{
+                            
+                            model.setValue((cls as! GrandModel.Type).map(item.1 as! NSDictionary), forKeyPath: key)
+                        }
                     }
                     continue
                 }

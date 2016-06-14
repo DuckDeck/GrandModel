@@ -17,6 +17,7 @@
 		AEBCA42C1C8FE7CE00360056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBCA42B1C8FE7CE00360056 /* Assets.xcassets */; };
 		AEBCA42F1C8FE7CE00360056 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBCA42D1C8FE7CE00360056 /* LaunchScreen.storyboard */; };
 		AEBCA4381C8FE7E700360056 /* GrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBCA4371C8FE7E700360056 /* GrandModel.swift */; };
+		AEC85FAE1CF6F2C0008798B2 /* GrandModel+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC85FAD1CF6F2C0008798B2 /* GrandModel+Convert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AEBCA42E1C8FE7CE00360056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEBCA4301C8FE7CE00360056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBCA4371C8FE7E700360056 /* GrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandModel.swift; sourceTree = "<group>"; };
+		AEC85FAD1CF6F2C0008798B2 /* GrandModel+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GrandModel+Convert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				AEBCA4371C8FE7E700360056 /* GrandModel.swift */,
 				AE93ACDC1CE871A0003C737F /* GrandType.swift */,
 				AE93ACDE1CE874F1003C737F /* GrandModel+Map.swift */,
+				AEC85FAD1CF6F2C0008798B2 /* GrandModel+Convert.swift */,
 			);
 			path = GrandModel;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				AEBCA4251C8FE7CE00360056 /* AppDelegate.swift in Sources */,
 				AEBCA4381C8FE7E700360056 /* GrandModel.swift in Sources */,
 				AE93ACDF1CE874F1003C737F /* GrandModel+Map.swift in Sources */,
+				AEC85FAE1CF6F2C0008798B2 /* GrandModel+Convert.swift in Sources */,
 				AE164BC21C94203400B9FC52 /* DemoMirror.swift in Sources */,
 				AE93ACDD1CE871A0003C737F /* GrandType.swift in Sources */,
 				AE93ACE11CE87B01003C737F /* DemoClass.swift in Sources */,
