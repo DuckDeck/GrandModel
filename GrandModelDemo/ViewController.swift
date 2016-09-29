@@ -19,10 +19,10 @@ class ViewController: UIViewController {
 //                                           "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]]
         
         
-        let demoDict:[String:AnyObject] = ["SUserName":"123123"]
+        let demoDict:[String:AnyObject] = ["SUserName":"123123" as AnyObject]
         
         //let demoDict:[String:AnyObject] = ["ib":true,"score":11]
-        let demo  = DemoClass.map(demoDict)
+        let demo  = DemoClass.map(demoDict as AnyObject)
         //demo.otherClass = DemoOther.mapModel(demoDict["DemoOther"]!)
         print(demo)
         //print(demo.otherClasses)
@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         
         //这个先这样，明天再测试
         enum week{
-            case Mon,Thu,Wed,Tur,Fri,Sai,Sun
+            case mon,thu,wed,tur,fri,sai,sun
         }
         //TestModel加入枚举
         class TestModel:GrandModel {

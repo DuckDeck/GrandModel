@@ -29,7 +29,7 @@ class GrandType {
     
     var realType: RealType = .None
     
-    private var propertyMirrorType: Mirror
+    fileprivate var propertyMirrorType: Mirror
     
     init(propertyMirrorType: Mirror, belongType: Any.Type){
         
@@ -68,9 +68,9 @@ extension GrandType{
         
         displayStyle = propertyMirrorType.displayStyle
         
-        if displayStyle == nil && basicTypes.contains(typeName) {displayStyle = .Struct}
+        if displayStyle == nil && basicTypes.contains(typeName) {displayStyle = .struct}
         
-        if extraTypes.contains(typeName) {displayStyle = .Struct}
+        if extraTypes.contains(typeName) {displayStyle = .struct}
         
         //        guard displayStyle != nil else {fatalError("[Charlin Feng]: DisplayStyle Must Have Value")}
     }
@@ -81,11 +81,11 @@ extension GrandType{
         
         switch displayStyle! {
             
-        case .Struct: displayStyleDesc = "Struct"
-        case .Class: displayStyleDesc = "Class"
-        case .Optional: displayStyleDesc = "Optional"; isOptional = true;
-        case .Enum: displayStyleDesc = "Enum"
-        case .Tuple: displayStyleDesc = "Tuple"
+        case .struct: displayStyleDesc = "Struct"
+        case .class: displayStyleDesc = "Class"
+        case .optional: displayStyleDesc = "Optional"; isOptional = true;
+        case .enum: displayStyleDesc = "Enum"
+        case .tuple: displayStyleDesc = "Tuple"
         default: displayStyleDesc = "Other: Collection/Dictionary/Set"
             
         }
@@ -147,13 +147,13 @@ extension GrandType{
         }
     }
     
-    class func makeClass(type: GrandType) -> AnyClass {
+    class func makeClass(_ type: GrandType) -> AnyClass {
         
         let arrayString = type.typeName
         
-        let clsString = arrayString.replacingOccurrencesOfString("Array<", withString: "").replacingOccurrencesOfString("Optional<", withString: "").replacingOccurrencesOfString(">", withString: "")
+        let clsString = arrayString?.replacingOccurrencesOfString("Array<", withString: "").replacingOccurrencesOfString("Optional<", withString: "").replacingOccurrencesOfString(">", withString: "")
         
-        var cls: AnyClass? = ClassFromString(clsString)
+        var cls: AnyClass? = ClassFromString(clsString!)
         
         if cls == nil && type.isReflect {
             
@@ -189,16 +189,16 @@ extension GrandType{
 
 extension String{
     
-    func contain(subStr subStr: String) -> Bool {return (self as NSString).rangeOfString(subStr).length > 0}
+    func contain(subStr: String) -> Bool {return (self as NSString).range(of: subStr).length > 0}
     
-    func explode (separator: Character) -> [String] {
-        return self.characters.split(isSeparator: { (element: Character) -> Bool in
+    func explode (_ separator: Character) -> [String] {
+        return self.characters.split(whereSeparator: { (element: Character) -> Bool in
             return element == separator
         }).map { String($0) }
     }
     
-    func replacingOccurrencesOfString(target: String, withString: String) -> String{
-        return (self as NSString).stringByReplacingOccurrencesOfString(target, withString: withString)
+    func replacingOccurrencesOfString(_ target: String, withString: String) -> String{
+        return (self as NSString).replacingOccurrences(of: target, with: withString)
     }
     
     func deleteSpecialStr()->String{
@@ -206,10 +206,10 @@ extension String{
         return self.replacingOccurrencesOfString("Optional<", withString: "").replacingOccurrencesOfString(">", withString: "")
     }
     
-    var floatValue: Float? {return NSNumberFormatter().numberFromString(self)?.floatValue}
-    var doubleValue: Double? {return NSNumberFormatter().numberFromString(self)?.doubleValue}
+    var floatValue: Float? {return NumberFormatter().number(from: self)?.floatValue}
+    var doubleValue: Double? {return NumberFormatter().number(from: self)?.doubleValue}
     
-    func repeatTimes(times: Int) -> String{
+    func repeatTimes(_ times: Int) -> String{
         
         var strM = ""
         
@@ -222,11 +222,11 @@ extension String{
 }
 
 
-func ClassFromString(str: String) -> AnyClass!{
+func ClassFromString(_ str: String) -> AnyClass!{
     
-    if  var appName = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleName") as? String {
+    if  var appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String {
         
-        if appName == "" {appName = ((NSBundle.mainBundle().bundleIdentifier!).characters.split{$0 == "."}.map { String($0) }).last ?? ""}
+        if appName == "" {appName = ((Bundle.main.bundleIdentifier!).characters.split{$0 == "."}.map { String($0) }).last ?? ""}
         
         var clsStr = str
         
@@ -244,7 +244,7 @@ func ClassFromString(str: String) -> AnyClass!{
             
             var nameStringM = "_TtC" + "C".repeatTimes(num - 2)
             
-            for (_, s): (Int, String) in strArr.enumerate(){
+            for (_, s): (Int, String) in strArr.enumerated(){
                 
                 nameStringM += "\(s.characters.count)\(s)"
             }

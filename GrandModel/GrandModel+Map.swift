@@ -11,10 +11,10 @@ import Foundation
 //和别人的没法比啊，
 //让我无地自容啊
 extension GrandModel{
-    static func map(obj:AnyObject)->Self{
+    static func map(_ obj:AnyObject)->Self{
         //  let modelName = "\(self)"
         let model = self.init()
-        let modelName = "\(model.dynamicType)"
+        let modelName = "\(type(of: model))"
         let dictTypes = GrandModel.typeMapTable[modelName]
         var isKeyPath = false
         if let dict = obj as? [String:AnyObject]
@@ -32,9 +32,9 @@ extension GrandModel{
                 isKeyPath = false
                 if type == nil {  //正常这里不会是nil
                     //不行，如果里面还有一层的话，那样就不好了，也就是说，如果需要把传回的数据映射成它的子类，那么这里还要再判断
-                    if key.containsString(".") {
+                    if key.contains(".") {
                         fullPathKey = key
-                         key = key.componentsSeparatedByString(".").first!
+                         key = key.components(separatedBy: ".").first!
                          type = dictTypes![key]
                         isKeyPath = true
                         
@@ -49,7 +49,7 @@ extension GrandModel{
                 if type!.isArray{
                     //这里就比较麻烦点
                     if let res = type!.isAggregate(){
-                        var arrAggregate = []
+                        var arrAggregate:Any
                         if res is Int.Type {
                             arrAggregate = parseAggregateArray(dict[key] as! NSArray, basicType: GrandType.BasicType.Int, ins: 0)
                         }else if res is Float.Type {
@@ -68,7 +68,7 @@ extension GrandModel{
                         let elementModelType =  GrandType.makeClass(type!) as! GrandModel.Type
                         let dictKeyArr = item.1 as! NSArray
                         var arrM: [GrandModel] = []
-                        for (_, value) in dictKeyArr.enumerate() {
+                        for (_, value) in dictKeyArr.enumerated() {
                             let elementModel = elementModelType.map(value as! NSDictionary)
                             arrM.append(elementModel)
                         }
@@ -88,7 +88,7 @@ extension GrandModel{
                     {
                         let cls = ClassFromString(type!.typeName)
                         if isKeyPath {
-                            if model.valueForKey(key) == nil {
+                            if model.value(forKey: key) == nil {
                                 model.setValue((cls as! GrandModel.Type).init(), forKey:key)
                             }
                             model.setValue(item.1, forKeyPath: fullPathKey)
@@ -104,10 +104,10 @@ extension GrandModel{
         }
         return model
     }
-    class func parseAggregateArray<T>(arrDict: NSArray,basicType: GrandType.BasicType, ins: T) -> [T]{
+    class func parseAggregateArray<T>(_ arrDict: NSArray,basicType: GrandType.BasicType, ins: T) -> [T]{
         var intArrM: [T] = []
         if arrDict.count == 0 {return intArrM}
-        for (_, value) in arrDict.enumerate() {
+        for (_, value) in arrDict.enumerated() {
             var element: T = ins
             let v = "\(value)"
             if T.self is Int.Type {
@@ -115,7 +115,7 @@ extension GrandModel{
             }
             else if T.self is Float.Type {element = v.floatValue as! T}
             else if T.self is Double.Type {element = v.doubleValue as! T}
-            else if T.self is NSNumber.Type {element = NSNumber(double: v.doubleValue!) as! T}
+            else if T.self is NSNumber.Type {element = NSNumber(value: v.doubleValue! as Double) as! T}
             else{element = value as! T}
             intArrM.append(element)
         }

@@ -8,24 +8,24 @@
 
 import UIKit
 
-public class Store {
+open class Store {
     let storesToDisk: Bool = true
 }
-public class BookmarkStore: Store {
+open class BookmarkStore: Store {
     let itemCount: Int = 10
 }
 public struct Bookmark {
     enum Group {
-        case Tech
-        case News
+        case tech
+        case news
     }
-    private let store = {
+    fileprivate let store = {
         return BookmarkStore()
     }()
     let title: String?
-    let url: NSURL
+    let url: URL
     let keywords: [String]
     let group: Group
 }
 
-let aBookmark = Bookmark(title: "Appventure", url: NSURL(string: "appventure.me")!, keywords: ["Swift", "iOS", "OSX"], group: .Tech)
+let aBookmark = Bookmark(title: "Appventure", url: URL(string: "appventure.me")!, keywords: ["Swift", "iOS", "OSX"], group: .tech)

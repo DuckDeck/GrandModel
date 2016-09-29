@@ -16,11 +16,11 @@ class DemoClass: GrandModel {
     var isFool:Bool = false
     var money:Double?
     var intergerDemo:NSInteger = 2
-    var pointDemo:CGPoint = CGPointZero
-    var sizeDemo:CGSize = CGSizeZero
-    var rectDemo:CGRect = CGRectZero
-    var dataDemo:NSData = NSData()
-    var dateDemo = NSDate()
+    var pointDemo:CGPoint = CGPoint.zero
+    var sizeDemo:CGSize = CGSize.zero
+    var rectDemo:CGRect = CGRect.zero
+    var dataDemo:Data = Data()
+    var dateDemo = Date()
     var userName:String?
     var otherClass:DemoOther?
     var otherClasses:[DemoOther]?
@@ -50,7 +50,7 @@ class DemoArchiver:GrandModel {
     var demoFloat:Float?
     var demoBool:Bool = true
     var demoDouble:Double = 0.0
-    var demoDate:NSDate?
+    var demoDate:Date?
     var demoClass:demoArc?
     var demoArray:[demoArc]?
     var demoDict:[String:demoArc]?
