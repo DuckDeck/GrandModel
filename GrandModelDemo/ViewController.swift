@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         //demo.otherClass = DemoOther.mapModel(demoDict["DemoOther"]!)
         print(demo)
         //print(demo.otherClasses)
-        print(demo.otherClasses)
+        print(demo.otherClasses!)
         
         let dict = demo.convert()
         for (key,value) in dict{

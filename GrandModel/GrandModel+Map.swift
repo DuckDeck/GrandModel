@@ -7,9 +7,6 @@
 //
 
 import Foundation
-//我写的什么破玩意，
-//和别人的没法比啊，
-//让我无地自容啊
 extension GrandModel{
     static func map(_ obj:AnyObject)->Self{
         //  let modelName = "\(self)"
