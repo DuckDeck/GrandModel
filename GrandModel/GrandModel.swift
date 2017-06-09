@@ -16,6 +16,12 @@ class GrandModel:NSObject,NSCoding{
         }
     }
 
+    var selfIgnoreMapDescription:[String]?{
+        get{
+            return nil
+        }
+    }
+    
     static var typeMapTable:[String:[String:GrandType]] = [String:[String:GrandType]]()
     required override init() {
         super.init()
@@ -61,6 +67,8 @@ class GrandModel:NSObject,NSCoding{
     }
     
     
+    private(set) var identifier:NSString = "cell\(arc4random())" as NSString
+
     func getSelfProperty()->[String]{
         var selfProperties = [String]()
         var count:UInt32 =  0

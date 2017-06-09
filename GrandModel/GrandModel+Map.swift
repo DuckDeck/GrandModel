@@ -23,6 +23,11 @@ extension GrandModel{
                         key = model.selfMapDescription![item.0]!  //如果Server传过来的Key只有部分是一样的？那么怎么办，不好意思，还是老实地写个映射表吧, 其实这也没问题，那就直接用字典的key就行了，只要是一样的
                     }
                 }
+                if model.selfIgnoreMapDescription != nil{
+                    if model.selfIgnoreMapDescription!.contains(key) {
+                        continue
+                    }
+                }
                 print("key 为\(item.0)将要被设成\(key),其值是 \(item.1)")
                 var type = dictTypes![key]
                 var fullPathKey = ""
@@ -76,7 +81,13 @@ extension GrandModel{
                     if  type!.typeClass == Bool.self{
                         model.setValue(item.1.boolValue, forKeyPath: key)
                     }else {
-                        model.setValue(item.1, forKeyPath: key)
+                        //加一个纠错功能，如果这个Model是String返回的数据又是Number， 那么需要转换
+                        if type!.typeClass == String.self && item.1 is NSNumber{
+                            model.setValue("\(item.1)", forKeyPath: key)
+                        }
+                        else{
+                            model.setValue(item.1, forKeyPath: key)
+                        }
                     }
                     continue
                 }
