@@ -61,7 +61,25 @@ class GrandModel:NSObject,NSCoding{
         let item = type(of: self).init()
         let properties = item.getSelfProperty()
         for propertyName in properties{
-            let value = aDecoder.decodeObject(forKey: propertyName)
+            var value = aDecoder.decodeObject(forKey: propertyName)
+            if value == nil{
+                if let type = GrandModel.typeMapTable[ "\(type(of: self))"]?[propertyName]{ //如果在更新版本上加了新的属性，会出现Crush的情况，在这里修复这个问题
+                    if !type.isOptional{
+                        switch type.realType {
+                        case .Double , .Float, .Int :
+                            value = 0
+                        case .String :
+                            value = ""
+                        case .Bool:
+                            value = false
+                        case .None:
+                            break
+                        default:
+                            return
+                        }
+                    }
+                }
+            }
             self.setValue(value, forKey: propertyName)
         }
     }
