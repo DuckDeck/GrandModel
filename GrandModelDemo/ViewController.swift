@@ -13,13 +13,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let demoDict:[String:AnyObject] = ["sName":"1234567",
-//                                           "iAge":"12",
-//                                            "ib":true,"iGrade":"6","UserName":"StanHu","intergerDemo":1000,"money":"222.4","SUserName":"123123","DemoOther":["userName":"OtherUserName"],
-//                                           "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]]
+        let demoDict:[String:Any] = ["sName":"1234567",
+                                           "iAge":"12",
+                                            "ib":true,"iGrade":"6","UserName":"StanHu","intergerDemo":1000,"money":"222.4","SUserName":"123123","DemoOther":["userName":"OtherUserName"],
+                                           "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]]
         
         
-        let demoDict:[String:AnyObject] = ["SUserName":"123123" as AnyObject]
+        //let demoDict:[String:AnyObject] = ["SUserName":"123123" as AnyObject]
         
         //let demoDict:[String:AnyObject] = ["ib":true,"score":11]
         let demo  = DemoClass.map(demoDict as AnyObject)
