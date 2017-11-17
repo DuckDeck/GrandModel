@@ -14,15 +14,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let demoDict:[String:Any] = ["sName":"1234567",
-                                           "iAge":"12",
-                                            "ib":true,"iGrade":"6","UserName":"StanHu","intergerDemo":1000,"money":"222.4","SUserName":"123123","DemoOther":["userName":"OtherUserName"],
-                                           "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]]
+                                      "iAge":"12",
+                                        "ib":true,
+                                    "iGrade":"6",
+                                  "UserName":"StanHu",
+                              "intergerDemo":1000,
+                                     "money":"222.4",  //money不能使用
+                                 "SUserName":"123123",
+                                 "DemoOther":["userName":"OtherUserName"],
+                                "DemoOthers":[["userName":"OtherUserName1"],["userName":"OtherUserName2"]]]
         
         
-        //let demoDict:[String:AnyObject] = ["SUserName":"123123" as AnyObject]
+        //let demoDict:[String:Any] = ["DemoOther":["userName":"OtherUserName"]]
+        
+        
+      
+        
+        
+        //let demoDict:[String:Any] = ["money":"222.4"]
         
         //let demoDict:[String:AnyObject] = ["ib":true,"score":11]
-        let demo  = DemoClass.map(demoDict as AnyObject)
+        let demo  = DemoClass.map(demoDict)
         //demo.otherClass = DemoOther.mapModel(demoDict["DemoOther"]!)
         print(demo)
         //print(demo.otherClasses)

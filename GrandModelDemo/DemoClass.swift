@@ -8,13 +8,13 @@
 
 import UIKit
 
-class DemoClass: GrandModel {
+@objcMembers class DemoClass: GrandModel {
     var name:String?
     var age:Int = 0
     var grade:Int = 0
     var score:Float = 0.0
     var isFool:Bool = false
-    var money:Double?
+    var money:Double? = 0.0  //如果是非对象类型，那么就不能为可空类型，不然后是找不到这个对象的
     var intergerDemo:NSInteger = 2
     var pointDemo:CGPoint = CGPoint.zero
     var sizeDemo:CGSize = CGSize.zero
@@ -62,7 +62,7 @@ class demoArc:GrandModel {
     var daInt:Int = 0
 }
 
-class DemoOther: GrandModel {
+@objcMembers class DemoOther: GrandModel {
     var userName:String?
     static var mapDict = ["userName":"userName"]
     override var selfMapDescription: [String : String]?{
