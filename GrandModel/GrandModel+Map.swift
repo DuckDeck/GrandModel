@@ -94,7 +94,10 @@ extension GrandModel{
                 else {
                     if !(item.1 is NSNull)
                     {
-                        let cls = ClassFromString(type!.typeName)
+                        guard let cls = ClassFromString(type!.typeName) else {
+                            return model
+                        }
+                        
                         if isKeyPath {
                             if model.value(forKey: key) == nil {
                                 model.setValue((cls as! GrandModel.Type).init(), forKey:key)
