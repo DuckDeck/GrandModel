@@ -11,6 +11,7 @@
 		AE93ACDD1CE871A0003C737F /* GrandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93ACDC1CE871A0003C737F /* GrandType.swift */; };
 		AE93ACDF1CE874F1003C737F /* GrandModel+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93ACDE1CE874F1003C737F /* GrandModel+Map.swift */; };
 		AE93ACE11CE87B01003C737F /* DemoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93ACE01CE87B01003C737F /* DemoClass.swift */; };
+		AEB7D096225C3620008C899E /* GrandStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB7D095225C361F008C899E /* GrandStore.swift */; };
 		AEBCA4251C8FE7CE00360056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBCA4241C8FE7CE00360056 /* AppDelegate.swift */; };
 		AEBCA4271C8FE7CE00360056 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBCA4261C8FE7CE00360056 /* ViewController.swift */; };
 		AEBCA42A1C8FE7CE00360056 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBCA4281C8FE7CE00360056 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		AE93ACDC1CE871A0003C737F /* GrandType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandType.swift; sourceTree = "<group>"; };
 		AE93ACDE1CE874F1003C737F /* GrandModel+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GrandModel+Map.swift"; sourceTree = "<group>"; };
 		AE93ACE01CE87B01003C737F /* DemoClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoClass.swift; sourceTree = "<group>"; };
+		AEB7D095225C361F008C899E /* GrandStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandStore.swift; sourceTree = "<group>"; };
 		AEBCA4211C8FE7CE00360056 /* GrandModelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandModelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBCA4241C8FE7CE00360056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEBCA4261C8FE7CE00360056 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		AEBCA4231C8FE7CE00360056 /* GrandModelDemo */ = {
 			isa = PBXGroup;
 			children = (
+				AEB7D095225C361F008C899E /* GrandStore.swift */,
 				AEBCA4241C8FE7CE00360056 /* AppDelegate.swift */,
 				AEBCA4261C8FE7CE00360056 /* ViewController.swift */,
 				AEBCA4281C8FE7CE00360056 /* Main.storyboard */,
@@ -117,19 +120,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = StanHu;
 				TargetAttributes = {
 					AEBCA4201C8FE7CE00360056 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 3YCGH6CCXA;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
 			buildConfigurationList = AEBCA41C1C8FE7CE00360056 /* Build configuration list for PBXProject "GrandModelDemo" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -169,6 +172,7 @@
 				AE93ACDF1CE874F1003C737F /* GrandModel+Map.swift in Sources */,
 				AEC85FAE1CF6F2C0008798B2 /* GrandModel+Convert.swift in Sources */,
 				AE164BC21C94203400B9FC52 /* DemoMirror.swift in Sources */,
+				AEB7D096225C3620008C899E /* GrandStore.swift in Sources */,
 				AE93ACDD1CE871A0003C737F /* GrandType.swift in Sources */,
 				AE93ACE11CE87B01003C737F /* DemoClass.swift in Sources */,
 			);
@@ -200,6 +204,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -208,12 +213,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -252,6 +259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -260,12 +268,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -303,7 +313,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Stan.GrandModelDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -316,7 +326,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Stan.GrandModelDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

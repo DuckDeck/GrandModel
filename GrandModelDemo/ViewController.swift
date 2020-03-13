@@ -9,10 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    static let test = GrandStore(name: "test", defaultValue: [DemoClass]())
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*  //测试map
         let demoDict:[String:Any] = ["sName":"1234567",
                                       "iAge":"12",
                                         "ib":true,
@@ -59,22 +60,24 @@ class ViewController: UIViewController {
         let model = TestModel()
         print(model)
         
-
+         */
         
         
-        /*
-         
+        
+         /*NSKeyedArchiver 目前没有问题
          let demo1 = DemoClass()
          demo1.userName = "demo1UserName"
          demo1.name = "demo1Name"
          demo1.rectDemo = CGRect(x: 100, y: 100, width: 100, height: 100)
          print(demo1)
-         let ach = NSKeyedArchiver.archivedDataWithRootObject(demo1)
-         let s = NSKeyedUnarchiver.unarchiveObjectWithData(ach)
-         print(s)
-         */
+         let ach = NSKeyedArchiver.archivedData(withRootObject: demo1)
+         let s = NSKeyedUnarchiver.unarchiveObject(with: ach) as! DemoClass
+         print(s.userName)
+         print(s.name)
+        */
         
-        /*
+        
+        
          //下面来试验
          let demoTest = DemoArchiver()
          demoTest.demoFloat = 11.11
@@ -89,14 +92,34 @@ class ViewController: UIViewController {
          demoTest.demoArray = [a1,a2]
          demoTest.demoDict  = ["demo1":a1,"demo2":a2]
          print(demoTest)
-         let a = NSKeyedArchiver.archivedDataWithRootObject(demoTest)
-         let b = NSKeyedUnarchiver.unarchiveObjectWithData(a)
+        let a = NSKeyedArchiver.archivedData(withRootObject: demoTest)
+        let b = NSKeyedUnarchiver.unarchiveObject(with: a)
          print(b)
          
-         */
+         
 
         
+        
+        
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let x = ViewController.test.Value!
+        if x.count > 0 && x.first!.name != nil{
+            print(x.first!.name ?? "")
+        }
+        else{
+            let s = DemoClass()
+            s.name = "this is a testthis is a testthis is a testthis is a test"
+            ViewController.test.Value = [s]
+        }
+        
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

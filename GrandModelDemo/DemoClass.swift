@@ -44,7 +44,7 @@ import UIKit
 }
 
 
-class DemoArchiver:GrandModel {
+@objcMembers class DemoArchiver:GrandModel {
     var demoString:String?
     var demoInt = 10
     var demoFloat:Float?
@@ -57,7 +57,7 @@ class DemoArchiver:GrandModel {
 }
 
 
-class demoArc:GrandModel {
+@objcMembers class demoArc:GrandModel {
     var daString:String?
     var daInt:Int = 0
 }
