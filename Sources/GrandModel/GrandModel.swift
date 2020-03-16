@@ -6,8 +6,6 @@
 //  Copyright © 2016 StanHu. All rights reserved.
 //
 import Foundation
-import UIKit
-
 
 class GrandModel:NSObject,NSCoding{
     var selfMapDescription:[String:String]?{

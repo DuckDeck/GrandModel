@@ -6,7 +6,6 @@
 //  Copyright © 2016 StanHu. All rights reserved.
 //
 
-import UIKit
 
 extension GrandModel{
     func convert() -> [String:Any] {
