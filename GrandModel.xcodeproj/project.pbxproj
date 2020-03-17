@@ -21,16 +21,20 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		AEE312F0241F6CDF00C32768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312EF241F6CDF00C32768 /* AppDelegate.swift */; };
-		AEE312F2241F6CDF00C32768 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F1241F6CDF00C32768 /* SceneDelegate.swift */; };
-		AEE312F4241F6CDF00C32768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE312F3241F6CDF00C32768 /* ViewController.swift */; };
-		AEE312F7241F6CDF00C32768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE312F5241F6CDF00C32768 /* Main.storyboard */; };
-		AEE312F9241F6CE400C32768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEE312F8241F6CE400C32768 /* Assets.xcassets */; };
-		AEE312FC241F6CE400C32768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE312FA241F6CE400C32768 /* LaunchScreen.storyboard */; };
-		AEE31305241F6E0100C32768 /* GrandModel+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE31301241F6E0100C32768 /* GrandModel+Convert.swift */; };
-		AEE31306241F6E0100C32768 /* GrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE31302241F6E0100C32768 /* GrandModel.swift */; };
-		AEE31307241F6E0100C32768 /* GrandModel+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE31303241F6E0100C32768 /* GrandModel+Map.swift */; };
-		AEE31308241F6E0100C32768 /* GrandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE31304241F6E0100C32768 /* GrandType.swift */; };
+		AEA6803B2420C270009748E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6803A2420C270009748E4 /* AppDelegate.swift */; };
+		AEA6803D2420C270009748E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6803C2420C270009748E4 /* SceneDelegate.swift */; };
+		AEA6803F2420C270009748E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6803E2420C270009748E4 /* ViewController.swift */; };
+		AEA680422420C270009748E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA680402420C270009748E4 /* Main.storyboard */; };
+		AEA680442420C274009748E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEA680432420C274009748E4 /* Assets.xcassets */; };
+		AEA680472420C274009748E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA680452420C274009748E4 /* LaunchScreen.storyboard */; };
+		AEA6804C2420C285009748E4 /* GrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6802D2420C22F009748E4 /* GrandModel.swift */; };
+		AEA6804D2420C287009748E4 /* GrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6802D2420C22F009748E4 /* GrandModel.swift */; };
+		AEA6804E2420C289009748E4 /* GrandModel+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6802F2420C22F009748E4 /* GrandModel+Convert.swift */; };
+		AEA6804F2420C28A009748E4 /* GrandModel+Convert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6802F2420C22F009748E4 /* GrandModel+Convert.swift */; };
+		AEA680502420C28C009748E4 /* GrandModel+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6802E2420C22F009748E4 /* GrandModel+Map.swift */; };
+		AEA680512420C28D009748E4 /* GrandModel+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6802E2420C22F009748E4 /* GrandModel+Map.swift */; };
+		AEA680522420C290009748E4 /* GrandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6802C2420C22F009748E4 /* GrandType.swift */; };
+		AEA680532420C291009748E4 /* GrandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA6802C2420C22F009748E4 /* GrandType.swift */; };
 		OBJ_29 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_40 /* GrandModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* GrandModelTests.swift */; };
 		OBJ_41 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* XCTestManifests.swift */; };
@@ -55,18 +59,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AEE312ED241F6CDF00C32768 /* GrandModelTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandModelTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEE312EF241F6CDF00C32768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AEE312F1241F6CDF00C32768 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AEE312F3241F6CDF00C32768 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AEE312F6241F6CDF00C32768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AEE312F8241F6CE400C32768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AEE312FB241F6CE400C32768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AEE312FD241F6CE400C32768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AEE31301241F6E0100C32768 /* GrandModel+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GrandModel+Convert.swift"; sourceTree = "<group>"; };
-		AEE31302241F6E0100C32768 /* GrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandModel.swift; sourceTree = "<group>"; };
-		AEE31303241F6E0100C32768 /* GrandModel+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GrandModel+Map.swift"; sourceTree = "<group>"; };
-		AEE31304241F6E0100C32768 /* GrandType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandType.swift; sourceTree = "<group>"; };
+		AEA6802C2420C22F009748E4 /* GrandType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GrandType.swift; path = Sources/GrandType.swift; sourceTree = "<group>"; };
+		AEA6802D2420C22F009748E4 /* GrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GrandModel.swift; path = Sources/GrandModel.swift; sourceTree = "<group>"; };
+		AEA6802E2420C22F009748E4 /* GrandModel+Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GrandModel+Map.swift"; path = "Sources/GrandModel+Map.swift"; sourceTree = "<group>"; };
+		AEA6802F2420C22F009748E4 /* GrandModel+Convert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GrandModel+Convert.swift"; path = "Sources/GrandModel+Convert.swift"; sourceTree = "<group>"; };
+		AEA680382420C270009748E4 /* GrandModelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandModelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEA6803A2420C270009748E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AEA6803C2420C270009748E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AEA6803E2420C270009748E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AEA680412420C270009748E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AEA680432420C274009748E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AEA680462420C274009748E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AEA680482420C274009748E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		"GrandModel::GrandModel::Product" /* GrandModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GrandModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"GrandModel::GrandModelTests::Product" /* GrandModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = GrandModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_12 /* GrandModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandModelTests.swift; sourceTree = "<group>"; };
@@ -75,7 +79,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AEE312EA241F6CDF00C32768 /* Frameworks */ = {
+		AEA680352420C270009748E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -100,18 +104,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AEE312EE241F6CDF00C32768 /* GrandModelTest */ = {
+		AEA680392420C270009748E4 /* GrandModelDemo */ = {
 			isa = PBXGroup;
 			children = (
-				AEE312EF241F6CDF00C32768 /* AppDelegate.swift */,
-				AEE312F1241F6CDF00C32768 /* SceneDelegate.swift */,
-				AEE312F3241F6CDF00C32768 /* ViewController.swift */,
-				AEE312F5241F6CDF00C32768 /* Main.storyboard */,
-				AEE312F8241F6CE400C32768 /* Assets.xcassets */,
-				AEE312FA241F6CE400C32768 /* LaunchScreen.storyboard */,
-				AEE312FD241F6CE400C32768 /* Info.plist */,
+				AEA6803A2420C270009748E4 /* AppDelegate.swift */,
+				AEA6803C2420C270009748E4 /* SceneDelegate.swift */,
+				AEA6803E2420C270009748E4 /* ViewController.swift */,
+				AEA680402420C270009748E4 /* Main.storyboard */,
+				AEA680432420C274009748E4 /* Assets.xcassets */,
+				AEA680452420C274009748E4 /* LaunchScreen.storyboard */,
+				AEA680482420C274009748E4 /* Info.plist */,
 			);
-			path = GrandModelTest;
+			path = GrandModelDemo;
 			sourceTree = "<group>";
 		};
 		OBJ_10 /* Tests */ = {
@@ -137,61 +141,51 @@
 			children = (
 				"GrandModel::GrandModel::Product" /* GrandModel.framework */,
 				"GrandModel::GrandModelTests::Product" /* GrandModelTests.xctest */,
-				AEE312ED241F6CDF00C32768 /* GrandModelTest.app */,
+				AEA680382420C270009748E4 /* GrandModelDemo.app */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_10 /* Tests */,
-				AEE312EE241F6CDF00C32768 /* GrandModelTest */,
+				AEA680392420C270009748E4 /* GrandModelDemo */,
 				OBJ_14 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_8 /* GrandModel */,
+				AEA6802D2420C22F009748E4 /* GrandModel.swift */,
+				AEA6802F2420C22F009748E4 /* GrandModel+Convert.swift */,
+				AEA6802E2420C22F009748E4 /* GrandModel+Map.swift */,
+				AEA6802C2420C22F009748E4 /* GrandType.swift */,
 			);
 			name = Sources;
-			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_8 /* GrandModel */ = {
-			isa = PBXGroup;
-			children = (
-				AEE31302241F6E0100C32768 /* GrandModel.swift */,
-				AEE31301241F6E0100C32768 /* GrandModel+Convert.swift */,
-				AEE31303241F6E0100C32768 /* GrandModel+Map.swift */,
-				AEE31304241F6E0100C32768 /* GrandType.swift */,
-			);
-			name = GrandModel;
-			path = Sources/GrandModel;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AEE312EC241F6CDF00C32768 /* GrandModelTest */ = {
+		AEA680372420C270009748E4 /* GrandModelDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AEE31300241F6CE400C32768 /* Build configuration list for PBXNativeTarget "GrandModelTest" */;
+			buildConfigurationList = AEA680492420C274009748E4 /* Build configuration list for PBXNativeTarget "GrandModelDemo" */;
 			buildPhases = (
-				AEE312E9241F6CDF00C32768 /* Sources */,
-				AEE312EA241F6CDF00C32768 /* Frameworks */,
-				AEE312EB241F6CDF00C32768 /* Resources */,
+				AEA680342420C270009748E4 /* Sources */,
+				AEA680352420C270009748E4 /* Frameworks */,
+				AEA680362420C270009748E4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = GrandModelTest;
-			productName = GrandModelTest;
-			productReference = AEE312ED241F6CDF00C32768 /* GrandModelTest.app */;
+			name = GrandModelDemo;
+			productName = GrandModelDemo;
+			productReference = AEA680382420C270009748E4 /* GrandModelDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		"GrandModel::GrandModel" /* GrandModel */ = {
@@ -251,7 +245,7 @@
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
-					AEE312EC241F6CDF00C32768 = {
+					AEA680372420C270009748E4 = {
 						CreatedOnToolsVersion = 11.3;
 						DevelopmentTeam = 3YCGH6CCXA;
 						ProvisioningStyle = Automatic;
@@ -266,45 +260,45 @@
 				en,
 				Base,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AEE312EC241F6CDF00C32768 /* GrandModelTest */,
 				"GrandModel::GrandModel" /* GrandModel */,
 				"GrandModel::SwiftPMPackageDescription" /* GrandModelPackageDescription */,
 				"GrandModel::GrandModelPackageTests::ProductTarget" /* GrandModelPackageTests */,
 				"GrandModel::GrandModelTests" /* GrandModelTests */,
+				AEA680372420C270009748E4 /* GrandModelDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AEE312EB241F6CDF00C32768 /* Resources */ = {
+		AEA680362420C270009748E4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEE312FC241F6CE400C32768 /* LaunchScreen.storyboard in Resources */,
-				AEE312F9241F6CE400C32768 /* Assets.xcassets in Resources */,
-				AEE312F7241F6CDF00C32768 /* Main.storyboard in Resources */,
+				AEA680472420C274009748E4 /* LaunchScreen.storyboard in Resources */,
+				AEA680442420C274009748E4 /* Assets.xcassets in Resources */,
+				AEA680422420C270009748E4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AEE312E9241F6CDF00C32768 /* Sources */ = {
+		AEA680342420C270009748E4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEE31305241F6E0100C32768 /* GrandModel+Convert.swift in Sources */,
-				AEE312F4241F6CDF00C32768 /* ViewController.swift in Sources */,
-				AEE312F0241F6CDF00C32768 /* AppDelegate.swift in Sources */,
-				AEE31307241F6E0100C32768 /* GrandModel+Map.swift in Sources */,
-				AEE31306241F6E0100C32768 /* GrandModel.swift in Sources */,
-				AEE312F2241F6CDF00C32768 /* SceneDelegate.swift in Sources */,
-				AEE31308241F6E0100C32768 /* GrandType.swift in Sources */,
+				AEA6804C2420C285009748E4 /* GrandModel.swift in Sources */,
+				AEA6803F2420C270009748E4 /* ViewController.swift in Sources */,
+				AEA6803B2420C270009748E4 /* AppDelegate.swift in Sources */,
+				AEA680502420C28C009748E4 /* GrandModel+Map.swift in Sources */,
+				AEA6803D2420C270009748E4 /* SceneDelegate.swift in Sources */,
+				AEA6804F2420C28A009748E4 /* GrandModel+Convert.swift in Sources */,
+				AEA680532420C291009748E4 /* GrandType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				AEA680522420C290009748E4 /* GrandType.swift in Sources */,
+				AEA680512420C28D009748E4 /* GrandModel+Map.swift in Sources */,
+				AEA6804E2420C289009748E4 /* GrandModel+Convert.swift in Sources */,
+				AEA6804D2420C287009748E4 /* GrandModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,18 +346,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AEE312F5241F6CDF00C32768 /* Main.storyboard */ = {
+		AEA680402420C270009748E4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AEE312F6241F6CDF00C32768 /* Base */,
+				AEA680412420C270009748E4 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		AEE312FA241F6CE400C32768 /* LaunchScreen.storyboard */ = {
+		AEA680452420C274009748E4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AEE312FB241F6CE400C32768 /* Base */,
+				AEA680462420C274009748E4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -367,7 +365,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		AEE312FE241F6CE400C32768 /* Debug */ = {
+		AEA6804A2420C274009748E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -416,21 +414,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = GrandModelTest/Info.plist;
+				INFOPLIST_FILE = GrandModelDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ShadowEdge.GrandModelTest;
+				PRODUCT_BUNDLE_IDENTIFIER = ShadowEdge.GrandModelDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		AEE312FF241F6CE400C32768 /* Release */ = {
+		AEA6804B2420C274009748E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -475,16 +472,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = GrandModelTest/Info.plist;
+				INFOPLIST_FILE = GrandModelDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = ShadowEdge.GrandModelTest;
+				PRODUCT_BUNDLE_IDENTIFIER = ShadowEdge.GrandModelDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -605,6 +601,7 @@
 		OBJ_37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -630,6 +627,7 @@
 		OBJ_38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -679,11 +677,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AEE31300241F6CE400C32768 /* Build configuration list for PBXNativeTarget "GrandModelTest" */ = {
+		AEA680492420C274009748E4 /* Build configuration list for PBXNativeTarget "GrandModelDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AEE312FE241F6CE400C32768 /* Debug */,
-				AEE312FF241F6CE400C32768 /* Release */,
+				AEA6804A2420C274009748E4 /* Debug */,
+				AEA6804B2420C274009748E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

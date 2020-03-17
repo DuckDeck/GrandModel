@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AEE312EC241F6CDF00C32768"
-               BuildableName = "GrandModelTest.app"
-               BlueprintName = "GrandModelTest"
+               BlueprintIdentifier = "AEA680372420C270009748E4"
+               BuildableName = "GrandModelDemo.app"
+               BlueprintName = "GrandModelDemo"
                ReferencedContainer = "container:GrandModel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AEE312EC241F6CDF00C32768"
-            BuildableName = "GrandModelTest.app"
-            BlueprintName = "GrandModelTest"
+            BlueprintIdentifier = "AEA680372420C270009748E4"
+            BuildableName = "GrandModelDemo.app"
+            BlueprintName = "GrandModelDemo"
             ReferencedContainer = "container:GrandModel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AEE312EC241F6CDF00C32768"
-            BuildableName = "GrandModelTest.app"
-            BlueprintName = "GrandModelTest"
+            BlueprintIdentifier = "AEA680372420C270009748E4"
+            BuildableName = "GrandModelDemo.app"
+            BlueprintName = "GrandModelDemo"
             ReferencedContainer = "container:GrandModel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
