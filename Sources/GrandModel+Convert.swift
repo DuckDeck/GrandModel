@@ -7,8 +7,8 @@
 //
 
 
-extension GrandModel{
-    func convert() -> [String:Any] {
+public extension GrandModel{
+    public func convert() -> [String:Any] {
         var dict = [String:Any]()
         let mirror = Mirror(reflecting: self)
         for child in mirror.children {

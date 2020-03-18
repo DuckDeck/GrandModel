@@ -7,7 +7,7 @@
 //
 import Foundation
 
-class GrandModel:NSObject,NSCoding{
+public class GrandModel:NSObject,NSCoding{
     var selfMapDescription:[String:String]?{
         get{
             return nil
@@ -41,11 +41,11 @@ class GrandModel:NSObject,NSCoding{
         }
         
     }
-    override func setValue(_ value: Any?, forUndefinedKey key: String) {
+    override public func setValue(_ value: Any?, forUndefinedKey key: String) {
         print("没有这个字段-------\(key)")
     }
     
-    func encode(with aCoder: NSCoder) {
+    public func encode(with aCoder: NSCoder) {
         let item = type(of: self).init()
         let properties = item.getSelfProperty()
         for propertyName in properties{
@@ -54,7 +54,7 @@ class GrandModel:NSObject,NSCoding{
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init()
         let item = type(of: self).init()
         let properties = item.getSelfProperty()
@@ -106,7 +106,7 @@ class GrandModel:NSObject,NSCoding{
 
 
 extension GrandModel{
-    internal override var description:String{
+    public override var description:String{
         get{
             var dict = [String:AnyObject]()
             var count:UInt32 =  0
@@ -123,7 +123,7 @@ extension GrandModel{
             return "\(type(of: self)):\(dict)"
         }
     }
-    internal override var debugDescription:String{
+    public override var debugDescription:String{
         get{
             return self.description
         }
