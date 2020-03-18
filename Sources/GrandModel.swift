@@ -7,21 +7,21 @@
 //
 import Foundation
 
-public class GrandModel:NSObject,NSCoding{
-    var selfMapDescription:[String:String]?{
+open class GrandModel:NSObject,NSCoding{
+   open var selfMapDescription:[String:String]?{
         get{
             return nil
         }
     }
 
-    var selfIgnoreMapDescription:[String]?{
+   open var selfIgnoreMapDescription:[String]?{
         get{
             return nil
         }
     }
     
     static var typeMapTable:[String:[String:GrandType]] = [String:[String:GrandType]]()
-    required override init() {
+    required override public init() {
         super.init()
         let modelName = "\(type(of: self))"
         if type(of: self) == GrandModel.self
@@ -41,11 +41,11 @@ public class GrandModel:NSObject,NSCoding{
         }
         
     }
-    override public func setValue(_ value: Any?, forUndefinedKey key: String) {
+    override open func setValue(_ value: Any?, forUndefinedKey key: String) {
         print("没有这个字段-------\(key)")
     }
     
-    public func encode(with aCoder: NSCoder) {
+    open func encode(with aCoder: NSCoder) {
         let item = type(of: self).init()
         let properties = item.getSelfProperty()
         for propertyName in properties{
@@ -85,7 +85,7 @@ public class GrandModel:NSObject,NSCoding{
     
     private(set) var identifier:NSString = "cell\(arc4random())" as NSString
 
-    func getSelfProperty()->[String]{
+   open func getSelfProperty()->[String]{
         var selfProperties = [String]()
         var count:UInt32 =  0
         let properties = class_copyPropertyList(type(of: self), &count)
@@ -106,7 +106,7 @@ public class GrandModel:NSObject,NSCoding{
 
 
 extension GrandModel{
-    public override var description:String{
+    open override var description:String{
         get{
             var dict = [String:AnyObject]()
             var count:UInt32 =  0
@@ -123,7 +123,7 @@ extension GrandModel{
             return "\(type(of: self)):\(dict)"
         }
     }
-    public override var debugDescription:String{
+    open override var debugDescription:String{
         get{
             return self.description
         }

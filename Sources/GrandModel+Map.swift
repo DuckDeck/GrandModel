@@ -8,7 +8,7 @@
 
 import Foundation
 extension GrandModel{
-    static func map(_ obj:Any)->Self{
+    static public func map(_ obj:Any)->Self{
         //  let modelName = "\(self)"
         let model = self.init()
         let modelName = "\(type(of: model))"

@@ -187,7 +187,7 @@ extension GrandType{
 
 
 
-extension String{
+public extension  String{
     
     func contain(subStr: String) -> Bool {return (self as NSString).range(of: subStr).length > 0}
     
